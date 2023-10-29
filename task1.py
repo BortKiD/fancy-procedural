@@ -1,13 +1,15 @@
-def find_common_participants(first_group, second_group, sep=','):
-    first_group = set(first_group.split(sep))
-    second_group = second_group.split(sep)
-    common_participants = list(first_group.intersection(second_group))
-    common_participants.sort()
-    return common_participants
+# TODO Напишите функцию для поиска индекса товара
+def search_item_index(item_list, purchase):
+    for i, item in enumerate(item_list):
+        if purchase == item:
+            return i
 
 
-participants_first_group = "Иванов|Петров|Сидоров"
-participants_second_group = "Петров|Сидоров|Смирнов"
+items_list = ['яблоко', 'банан', 'апельсин', 'груша', 'киви', 'банан']
 
-print(find_common_participants(participants_first_group,
-                               participants_second_group, sep='|'))
+for find_item in ['банан', 'груша', 'персик']:
+    index_item = search_item_index(items_list, find_item)  # TODO Вызовите функцию, что получить индекс товара
+    if index_item is not None:
+        print(f"Первое вхождение товара '{find_item}' имеет индекс {index_item}.")
+    else:
+        print(f"Товар '{find_item}' не найден в списке.")
